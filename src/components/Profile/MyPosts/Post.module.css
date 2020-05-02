@@ -1,0 +1,25 @@
+.item {
+    color: mediumvioletred;
+}
+
+.item2 {
+    color: red;}
+
+.item img {
+    width: 90px;
+    height: 90px;
+    border-radius: 30px ;
+}
+
+.btnDellPost{
+    color: green;
+    background-color: red;
+    width:10x;
+    height:20px;
+    border-radius: 20px;
+}
+
+
+
+
+

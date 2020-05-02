@@ -1,0 +1,23 @@
+/*.imgClass {
+    width: 30px;
+    height: 30px;
+    border-radius: 55px;
+}*/
+
+img {
+    width: 90px;
+    height: 90px;
+    border-radius: 90px;
+}
+
+.descriptionBlock {
+    padding: 10px;
+}
+
+.ProfileInfo {
+    background-color: red;
+}
+
+
+
+

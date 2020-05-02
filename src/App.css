@@ -1,0 +1,28 @@
+.app-wrapper {
+
+  display: grid ;
+  width: 1200px;
+  margin: 0 auto;
+
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 5fr;
+  grid-gap: 0px;
+
+
+          grid-template-areas:
+          "header header "
+          "navbar content"
+          "footer footer";
+
+}
+
+
+
+
+.app-wrapper-content {
+                grid-area: content;
+                background-color: lavender;
+}
+
+
+

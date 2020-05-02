@@ -1,0 +1,11 @@
+.Profile {
+    grid-area: profile;
+    background-color: yellow;
+}
+
+
+.descriptionBlock {
+
+    padding: 10px;
+}
+

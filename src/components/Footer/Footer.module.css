@@ -1,0 +1,39 @@
+
+.footer {
+    grid-area: footer;
+    background-color: lightskyblue;
+    height: 150px;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-column-gap: 2em;
+    grid-row-gap: 1em;
+
+}
+
+
+.div1 {
+
+    align-self: start;
+    justify-self: end;
+}
+
+.div2 {
+    align-self: end;
+}
+
+.div3 {
+    align-self: center;
+}
+
+.div4 {
+    align-self: end;
+}
+
+
+
+
+
+
+
+
+
