@@ -20,30 +20,24 @@ const ProfileInfo = (props) => {
 
             <div className={sss.descriptionBlock}>
 
-                <div>
-                    <ProfileStatusWithHooks //status={"temporaly status"}
+                <ProfileStatusWithHooks //status={"temporaly status"}
                     status={props.status}
                     props={props}
                     updateStatus={props.updateStatus} />
-                </div>
 
 
                 <div>
-                    <img src={props.profile.photos.large}/>
+                    <img src={props.profile.photos.large} align="left"/>
+                </div>
+
+                <div>
                     <div><span> My name is: {props.profile.fullName} </span></div>
                     <div><span> My id: {props.profile.userId} </span></div>
                     <div><span> AboutMe: {props.profile.aboutMe} </span></div>
                     <div><span> Contacts: {props.profile.contacts.facebook} </span></div>
                 </div>
-
-
-
-
-
             </div>
-
         </div>
-
     )
 }
 

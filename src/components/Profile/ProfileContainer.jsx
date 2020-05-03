@@ -17,7 +17,6 @@ class ProfileContainer extends React.Component {
         if (!userId) {
             this.props.history.push("/Login")
         }
-
         this.props.getUserProfile(userId);
         this.props.getUserStatus(userId);
     }
@@ -48,4 +47,3 @@ export default compose(
     withAuthRedirect
 )(ProfileContainer);
 
-// 23-47

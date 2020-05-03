@@ -24,8 +24,10 @@ const profileReducer = (state=initialState, action) => {
 
 
         case ADD_POST: {
+
+
                 let newPost = {
-                id: 4,
+                id: state.posts.length+1,
                 posts: action.newPostText,
                 likesCount: 0
             };
@@ -64,11 +66,18 @@ export const setUserStatusActionCreator = (status)=>  ( { type: "SET-USER-STATUS
 
 
 
+
 export const getUserProfile = (userId) => {
     return (dispatch) => {
         userAPI.getProfile (userId)
             .then(response => {
                 dispatch(SetUserProfileActionCreater(response.data))  })    }}
+
+
+
+
+
+
 
 export const getUserStatus = (userId) => {
     return (dispatch) => {
@@ -82,9 +91,6 @@ export const updateStatus = (status) => {
             .then(response => {
              if (response.data.resultCode===0){
               dispatch(setUserStatusActionCreator(status))}  })  }}
-
-
-
 
 
  export default profileReducer;

@@ -1,5 +1,5 @@
 import React from "react";
-import profileReducer, {addPostActionCreator} from "./profile-reducer";
+import profileReducer, {addPostActionCreator, deletePostActionCreator} from "./profile-reducer";
 
 
 it ('new post should be added', ()=> {
@@ -24,7 +24,7 @@ it ('new post should be added', ()=> {
 
 it ('afret deleting length of message should be decrement', ()=> {
     // 1. let data
-    let action = deletePost (1)
+    let action = deletePostActionCreator (2)
     let state = {
         posts: [
             {id: 1, posts: 'how are you', likesCount: 12},
@@ -36,6 +36,6 @@ it ('afret deleting length of message should be decrement', ()=> {
     let newstate = profileReducer(state, action)
 
     // 3.expectation
-    expect (newstate.posts.length).toBe(6);
+    expect (newstate.posts.length).toBe(2);
 
 });

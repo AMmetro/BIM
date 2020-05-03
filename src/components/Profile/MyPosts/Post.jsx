@@ -15,10 +15,7 @@ const Post = (props) => {
                 {props.posts} <br/>
              </div>
             <span >like</span> {props.likesCount}  <br/><br/>
-
-
         </div>
-
     )
 }
 

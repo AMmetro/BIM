@@ -8,7 +8,7 @@ img {
     width: 90px;
     height: 90px;
     border-radius: 90px;
-}
+ }
 
 .descriptionBlock {
     padding: 10px;
@@ -17,6 +17,8 @@ img {
 .ProfileInfo {
     background-color: red;
 }
+
+
 
 
 

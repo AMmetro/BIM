@@ -47,10 +47,6 @@ class MyPosts extends React.Component {
                                                                    id={postElem.id}
                                                                    deletePost={deletePost}/>);
 
-
-
-
-
               return (
             <div className={sss.MyPosts}>
                 <div className={sss.postsBlock}>
