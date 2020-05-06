@@ -12,7 +12,7 @@ import {compose} from "redux";
 import {
     getCurrentPage,
     getFollowInProgres, getIsFetching,
-    getPageSize,
+    getLengthOfPagination,
     getTotalUserCount,
     getUsers
 } from "../../redux/users-selectors";
@@ -39,7 +39,7 @@ render () {
             {this.props.isFetching ? <Preloader/>: null}
 
  <Users totalUserCount={this.props.totalUserCount}
-               pageSize={this.props.pageSize}
+        lengthOfPagination={this.props.lengthOfPagination}
                currentPage={this.props.currentPage}
                onPageChanged={this.onPageChanged}
                users={this.props.users}
@@ -64,7 +64,7 @@ render () {
             // followInProgres : state.usersPage.followInProgres,
 
             users: getUsers(state),
-            pageSize: getPageSize(state),
+            lengthOfPagination: getLengthOfPagination(state),
             totalUserCount: getTotalUserCount(state),
             currentPage: getCurrentPage(state),
             isFetching: getIsFetching(state),

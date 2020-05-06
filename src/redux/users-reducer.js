@@ -15,9 +15,9 @@ let initialState =
             // {id: 2, photoUrl:'', followed: false, fullName: 'Sasha', status: 'I am a boss too', location:{city:'Moskow', country:'Russia'} },
             // {id: 3, photoUrl:'', followed: true, fullName: 'Andrew', status: 'I am a boss too', location:{city:'Kiew', country:'Ukraine'} },
         ],
-        pageSize: 5,
-        totalUserCount: 11,
-        currentPage: 2,
+        lengthOfPagination: 10,
+        totalUserCount: 300,
+        currentPage: 10,
         isFetching: true,
         followInProgres: false
     };
