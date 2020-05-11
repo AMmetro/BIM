@@ -1,0 +1,1 @@
+// KMB Lesson nomber 94 - how to make HOC with React Lazy component

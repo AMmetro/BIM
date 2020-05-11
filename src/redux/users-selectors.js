@@ -11,8 +11,8 @@ export const getUsers=createSelector(getUsersSelector,  // using reselector
 
 
 
-export const getLengthOfPagination=(state)=> {
-    return state.usersPage.lengthOfPagination
+export const getPageSize=(state)=> {
+    return state.usersPage.pageSize
 };
 
 export const getTotalUserCount=(state)=> {
