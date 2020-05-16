@@ -9,8 +9,9 @@ import MyPostsContainer from "./MyPosts/MyPostsContainer";
 const Profile = (props) => {
 
       return (
-         <div className={sss.Profile}>
-             <ProfileInfo profile={props.profile}
+             <div className={sss.Profile}>
+             <ProfileInfo isOwner={props.isOwner}
+                          profile={props.profile}
                           status={props.status}
                           updateStatus={props.updateStatus}
                                         />

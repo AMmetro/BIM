@@ -15,6 +15,7 @@ let initialState =
         ],
         newPostText: 'it-kamasutra.com',
         profile: null,
+
         status: ""
     };
 
@@ -72,12 +73,6 @@ export const getUserProfile = (userId) => {
         userAPI.getProfile (userId)
             .then(response => {
                 dispatch(SetUserProfileActionCreater(response.data))  })    }}
-
-
-
-
-
-
 
 export const getUserStatus = (userId) => {
     return (dispatch) => {

@@ -18,7 +18,11 @@ img {
     background-color: red;
 }
 
-
+.mainPhoto {
+    width: 90px;
+    height: 90px;
+    border-radius: 90px;
+}
 
 
 

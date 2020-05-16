@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import sss from "./Paginator.module.css"
+import cn from "classnames"                  // npm install classnames
+
 
 let Paginator = ({totalUserCount,pageSize,currentPage,onPageChanged,portionSize=15}) => {
     
@@ -17,7 +19,7 @@ let Paginator = ({totalUserCount,pageSize,currentPage,onPageChanged,portionSize=
     let rightPortionPageNumber = portionNumber * portionSize;
 
 
-    function cn(param, pageNumber) {
+    function cn (param, pageNumber) {
         return "";
     }
 
@@ -27,10 +29,7 @@ let Paginator = ({totalUserCount,pageSize,currentPage,onPageChanged,portionSize=
            {portionNumber > 1 &&
            <button onClick={ ()=> setPortionNumber(portionNumber-1)}> prev </button>}
            
-
-
-
-            {pages
+           {pages
                 .filter(p =>  p>=leftPortionPageNumber && p<=rightPortionPageNumber)
                 .map ( ( p ) => {
 

@@ -3,10 +3,12 @@ import sss from './ProfileInfo.module.css';
 import Preloader from "../../Common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
+import userPhoto from '../../../assets/images/user.jpg';
 
 
 const ProfileInfo = (props) => {
     if (!props.profile) {              // эквивавлентно props.profile==null || undefinite
+
         return <Preloader/>
     }
 
@@ -20,14 +22,16 @@ const ProfileInfo = (props) => {
 
             <div className={sss.descriptionBlock}>
 
-                <ProfileStatusWithHooks //status={"temporaly status"}
+                <ProfileStatusWithHooks                          //status={"temporaly status"}
                     status={props.status}
                     props={props}
                     updateStatus={props.updateStatus} />
 
 
                 <div>
-                    <img src={props.profile.photos.large} align="left"/>
+                    <img src={props.profile.photos.large || userPhoto } align="left" className={sss.mainPhoto}/>
+                    {props.isOwner && <button>oooooooooooooooooooooo</button> }
+
                 </div>
 
                 <div>

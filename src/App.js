@@ -4,7 +4,7 @@ import HeaderContainer from './components/Header/HeaderContainer';
 import Navbar from './components/Navbar/Navbar';
 import Login from './components/Login/Login';
 import Music from './components/Music/Music';
-import ProfileContainer from './components/Profile/Profile';
+import ProfileContainer from './components/Profile/ProfileContainer';
 import UsersContainer from "./components/Users/UsersContainer";
 import Settings from './components/Settings/Settings';
 import Footer from "./components/Footer/Footer";
@@ -45,6 +45,7 @@ class App extends Component {
                 <Navbar/>
 
                 <div className='app-wrapper-content'>
+
 
                     <Route path='/Profile/:userId?' render={() => <ProfileContainer store={this.props.store}/>}/>
 
