@@ -4,7 +4,8 @@ import {toggleFollowInProgres, unfollowSucsess} from "./users-reducer";
 const ADD_POST = "ADD-POST";
 const SET_USER_PROFILE = "SET-USER-PROFILE";
 const SET_USER_STATUS = "SET-USER-STATUS";
-const DELETE_POST="DELETE-POST"
+const DELETE_POST="DELETE-POST";
+const SAVE_PHOTO_SUCCESS="SAVE-PHOTO-SUCCESS";
 
 let initialState =
     {
@@ -15,7 +16,6 @@ let initialState =
         ],
         newPostText: 'it-kamasutra.com',
         profile: null,
-
         status: ""
     };
 
@@ -38,6 +38,12 @@ const profileReducer = (state=initialState, action) => {
                 newPostText: ''
             }
         }
+
+        case SAVE_PHOTO_SUCCESS: {
+            debugger
+            return {...state, profile: {...state.profile, photos: action.file}}
+        }
+
 
         case DELETE_POST: {
             return {...state, posts: state.posts.filter(pst => pst.id!=action.postId )
@@ -64,6 +70,7 @@ export const addPostActionCreator = (newPostText)=>{return  {type: "ADD-POST", n
 export const deletePostActionCreator = (postId)=>{return  {type: "DELETE-POST", postId}};
 export const SetUserProfileActionCreater = (profile)=>{return  {type: "SET-USER-PROFILE", profile }};
 export const setUserStatusActionCreator = (status)=>  ( { type: "SET-USER-STATUS", status} );
+export const savePhotoSuccess = (file)=>  ( { type: "SAVE-PHOTO-SUCCESS", file} );
 
 
 
@@ -86,6 +93,16 @@ export const updateStatus = (status) => {
             .then(response => {
              if (response.data.resultCode===0){
               dispatch(setUserStatusActionCreator(status))}  })  }}
+
+
+export const savePhoto = (file) => async (dispatch)=> {
+    let response= await profileAPI.savePhoto (file)
+                if (response.data.resultCode===0){
+                    debugger
+               dispatch(savePhotoSuccess(response.data.data.photos))}}
+
+
+
 
 
  export default profileReducer;

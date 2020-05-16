@@ -4,13 +4,21 @@ import Preloader from "../../Common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 import userPhoto from '../../../assets/images/user.jpg';
+import {savePhoto} from "../../../redux/profile-reducer";
 
 
 const ProfileInfo = (props) => {
     if (!props.profile) {              // эквивавлентно props.profile==null || undefinite
-
-        return <Preloader/>
+           return <Preloader/>
     }
+
+
+    const onMainPhotoSelected = (e)=> {
+           if (e.target.files.length){
+          props.savePhoto(e.target.files[0])
+
+      }
+        }
 
     return (
         <div className={sss.ProfileInfo}>
@@ -30,8 +38,7 @@ const ProfileInfo = (props) => {
 
                 <div>
                     <img src={props.profile.photos.large || userPhoto } align="left" className={sss.mainPhoto}/>
-                    {props.isOwner && <button>oooooooooooooooooooooo</button> }
-
+                    {props.isOwner && <input type={"file"} onChange={onMainPhotoSelected}/> }
                 </div>
 
                 <div>

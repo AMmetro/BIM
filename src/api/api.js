@@ -35,8 +35,6 @@ export const userAPI = {
         return instance.delete(`/1.0/auth/login`)},
 };
 
-
-
 export const profileAPI = {
     getProfile (userId) {
         return instance.get(`/1.0/profile/` + userId)  },
@@ -44,6 +42,14 @@ export const profileAPI = {
     getStatus (userId){
         return instance.get(`/1.0/profile/status/`+userId )  },
 
+
+    savePhoto (photoFile){
+        const formData = new FormData ();
+        formData.append("image", photoFile);
+        return instance.put(`/1.0/profile/photo/`, formData, {
+            headers: {
+            'Content-Type': 'multipart/form-data'
+                     }            } ) },
 
     updateStatus (status){
         return instance.put(`/1.0/profile/status`, {status: status})  },
