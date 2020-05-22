@@ -16,6 +16,7 @@ const LoginForm = (props) => {
                 <div className={sss.divholder}>
                 </div>
                 <div>
+
                     <div><Field placeholder={"email"}
                                 name={"email"}
                                 component={Input}
