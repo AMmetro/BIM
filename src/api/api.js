@@ -28,8 +28,8 @@ export const userAPI = {
     authMe () {
         return instance.get(`/1.0/auth/me`)     },
 
-    Login (email, password, rememberMe=false) {
-              return instance.post(`/1.0/auth/login`, {email, password, rememberMe} )},
+    login (email, password, rememberMe=false, captcha=null) {
+              return instance.post(`/1.0/auth/login`, {email, password, rememberMe, captcha} )},
 
     Logout () {
         return instance.delete(`/1.0/auth/login`)},
@@ -51,6 +51,18 @@ export const profileAPI = {
             'Content-Type': 'multipart/form-data'
                      }            } ) },
 
+    saveProfile (profile){
+        console.log(profile)
+            return instance.put(`/1.0/profile`, profile )
+    },
+
     updateStatus (status){
         return instance.put(`/1.0/profile/status`, {status: status})  },
 };
+
+
+export const securityAPI = {
+    getCaptchaUrl () {
+        return instance.get(`/1.0/security/get-captcha-url`) },
+ }
+

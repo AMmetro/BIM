@@ -8,10 +8,8 @@ import ProfileContainer from './components/Profile/ProfileContainer';
 import UsersContainer from "./components/Users/UsersContainer";
 import Settings from './components/Settings/Settings';
 import Footer from "./components/Footer/Footer";
-import {BrowserRouter, Route, withRouter} from "react-router-dom";
+import {BrowserRouter, Route, Switch, withRouter} from "react-router-dom";
 import {connect} from "react-redux";
-import {getAuthUserData, logout, setAuthUserData} from "./redux/auth-reducer";
-import mapStateToProps from "react-redux/src/connect/mapStateToProps";
 import {compose} from "redux";
 import {initializedApp} from "./redux/app-reducer";
 import Preloader from "./components/Common/Preloader/Preloader";
@@ -26,10 +24,9 @@ const MyNews = React.lazy ( ()=> import ('./components/News/MyNews') );
 
 
 
-
 class App extends Component {
        componentDidMount() {
-           this.props.initializedApp();
+         this.props.initializedApp();
       };
 
 
@@ -47,6 +44,10 @@ class App extends Component {
                 <div className='app-wrapper-content'>
 
 
+                    <Switch>  {/*  with "switch" show only first routing with name match, without show all match */}
+
+                    <Route exact path='/' render={() => <ProfileContainer store={this.props.store}/>}/>
+
                     <Route path='/Profile/:userId?' render={() => <ProfileContainer store={this.props.store}/>}/>
 
                     <Route path='/Dialogs' render={() => {
@@ -61,11 +62,16 @@ class App extends Component {
 
                     <Route path='/Users' render={() => <UsersContainer/>}/>
 
-                    <Route path='/Music' component={Music}/>
 
-                    <Route path='/Settings' component={Settings}/>
+                    <Route exact path='/Music' render={()=> <Music/>  }/>
+
+                    <Route exact path='/Settings' component={Settings}/>     {/*//exact not render component if name include "Settings" but different */}
 
                     <Route path='/Login' component={Login}/>
+
+                    <Route path='*' render={()=> <div> 404 Page with this name not found </div> } />
+
+                    </Switch>
 
 
 

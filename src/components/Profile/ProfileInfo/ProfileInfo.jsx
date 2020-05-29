@@ -9,7 +9,6 @@ import ProfileDataForm from "./ProfileDataForm";
 
 
 const ProfileInfo = (props) => {
-
     let [editMode, setEditMode] = useState(false);
 
     if (!props.profile) {
@@ -54,7 +53,8 @@ const ProfileInfo = (props) => {
 
 
     const onSubmit=(formData)=> {
-       console.log("fg")
+       props.saveProfile(formData);
+        setEditMode(false);
     }
 
 
@@ -75,7 +75,7 @@ const ProfileInfo = (props) => {
                 </div>
 
                 {editMode
-                    ? <ProfileDataForm onSubmit={onSubmit} profile={props.profile}  Contact={props.Contact} isOwner={props.isOwner}/>
+                    ? <ProfileDataForm  initialValues={props.profile} profile={props.profile}  onSubmit={onSubmit} Contact={props.Contact} isOwner={props.isOwner}/>
                     : <ProfileData profile={props.profile} isOwner={props.isOwner}/>}
 
 
@@ -93,7 +93,7 @@ export default ProfileInfo;
 
 
 
-
+//   52 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 

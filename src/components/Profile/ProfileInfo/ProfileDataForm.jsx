@@ -1,12 +1,15 @@
 import React from "react";
 import {createField, Input, Textarea} from "../../Common/FormsControl/FormControls";
 import {reduxForm} from "redux-form";
+import sss from "./ProfileInfo.module.css";
 
 
 const ProfileDataForm = ({handleSubmit, profile}) => {
 
 
-     return (
+
+
+      return (
 
          <form onSubmit={handleSubmit} >
 
@@ -14,18 +17,29 @@ const ProfileDataForm = ({handleSubmit, profile}) => {
 
              <b> Looking for a job : {createField("", "lookingForAJob", [], Input, {type:"checkbox"})}</b>
 
-             <b>My skills:{  <b> {createField("My skills", "lookingForAJoblookingForAJobDescription", [],Textarea)}</b>    }</b>
+             <div>
+                 <b>My professional skills</b>:
+                 { createField("My professional skills", "lookingForAJobDescription", [],Textarea)}
+             </div>
 
-             <div><span> About Me: {createField("About Me", "AboutMeDescription", [],Textarea)} </span></div>
+             <b>About me:</b> {createField("About me", "aboutMe", [], Textarea)}
+
+             <div> Contacts: {Object.keys(profile.contacts).map(key => {
+                 return (
+                 <b> {key} : {createField(key, "contacts."+key, [], Input)}</b>  // in output make placeholder with name key
+
+
+
+                 // <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
+                 )
+             })}  </div>
+
+
 
              <div> <button>save</button>  </div>
 
 
-
          </form>
-
-
-
     )
 }
 
