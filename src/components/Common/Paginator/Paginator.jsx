@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import sss from "./Paginator.module.css"
-import cn from "classnames"                  // npm install classnames
+import classNames from "classnames"                  // npm install classnames
 
 
 let Paginator = ({totalUserCount,pageSize,currentPage,onPageChanged,portionSize=15}) => {
@@ -19,10 +19,6 @@ let Paginator = ({totalUserCount,pageSize,currentPage,onPageChanged,portionSize=
     let rightPortionPageNumber = portionNumber * portionSize;
 
 
-    function cn (param, pageNumber) {
-        return "";
-    }
-
     return (
            <div className={sss.Paginator}>
 
@@ -33,7 +29,7 @@ let Paginator = ({totalUserCount,pageSize,currentPage,onPageChanged,portionSize=
                 .filter(p =>  p>=leftPortionPageNumber && p<=rightPortionPageNumber)
                 .map ( ( p ) => {
 
-                 return <span className = { cn ({
+                 return <span className = { classNames ({
                      [sss.selectedPage] : currentPage === p
                  }, sss.pageNumber)}
                                  key = {p}

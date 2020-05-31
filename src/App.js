@@ -8,11 +8,12 @@ import ProfileContainer from './components/Profile/ProfileContainer';
 import UsersContainer from "./components/Users/UsersContainer";
 import Settings from './components/Settings/Settings';
 import Footer from "./components/Footer/Footer";
-import {BrowserRouter, Route, Switch, withRouter} from "react-router-dom";
+import {BrowserRouter, Redirect, Route, Switch, withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {initializedApp} from "./redux/app-reducer";
 import Preloader from "./components/Common/Preloader/Preloader";
+import News from "./components/News/News";
 
 // import DialogsContainer from "./components/Dialogs/DialogsContainer";
 // import MyNews from './components/News/MyNews';
@@ -21,13 +22,27 @@ const DialogsContainer = React.lazy ( ()=> import ("./components/Dialogs/Dialogs
 const MyNews = React.lazy ( ()=> import ('./components/News/MyNews') );
 
 
-
-
-
 class App extends Component {
+
+    catchALLUnhandledErrors = () => {
+        alert ("promiseRejectionEvent")
+    };
+
+
+    // c 60 minut
+
        componentDidMount() {
          this.props.initializedApp();
-      };
+         window.addEventListener("unhandledrejection", this.catchALLUnhandledErrors)
+             //handle error here for example log
+           };
+
+    componentWillUnmount (){
+        window.removeEventListener("unhandledrejection", this.catchALLUnhandledErrors)
+        //handle error here for example log
+
+};
+
 
 
     render() {
@@ -47,6 +62,8 @@ class App extends Component {
                     <Switch>  {/*  with "switch" show only first routing with name match, without show all match */}
 
                     <Route exact path='/' render={() => <ProfileContainer store={this.props.store}/>}/>
+
+                    <Route exact path='//' render={() => <Redirect to={"/Music"}/>}/>
 
                     <Route path='/Profile/:userId?' render={() => <ProfileContainer store={this.props.store}/>}/>
 

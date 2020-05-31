@@ -1,5 +1,5 @@
 
-.Music {
+.MainPage {
      background-color: yellow;
      height: 100%;
 }
@@ -7,6 +7,12 @@
 .popUpArea{
      background-color: mediumvioletred;
      margin: 30px;
+}
+
+.Adiition {
+     background-color: yellow;
+     height: 100%;
+     padding: 2px;
 }
 
 

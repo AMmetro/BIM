@@ -39,7 +39,8 @@ class Music extends React.Component {
        );
 
         return (
-            <div className={sss.Music}>
+            <div className={sss.MainPage +" "+ sss.Adiition}>
+
 
 
 
