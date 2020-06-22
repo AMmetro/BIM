@@ -7,9 +7,20 @@ import {stopSubmit} from "redux-form";
 
 
 export const SET_USER_DATA = "SET-USER-DATA";
-export const GET_CAPTCHA_URL_SUCCES = "GET-CAPTCHA-URL-SUCCES";     //АДРЕС РОЛНЫЙ
+export const GET_CAPTCHA_URL_SUCCES = "GET-CAPTCHA-URL-SUCCES";     // full address
 
-let initialState ={
+type InitialStateType ={
+    userId: number | null,
+    email: string | null,
+    login: string | null,
+    isAuth: boolean | null,
+    isFetching: boolean | null,
+    captchaUrl: string | null
+}
+
+
+
+let initialState: InitialStateType ={
        userId: null,
        email: null,
        login: null,
@@ -18,7 +29,7 @@ let initialState ={
        captchaUrl: null   // if null captcha is not required
       }
 
-const authReducer = (state=initialState, action) => {
+const authReducer = (state:InitialStateType=initialState, action:any): InitialStateType => {
 
     switch (action.type)  {
            case SET_USER_DATA:
@@ -32,8 +43,11 @@ const authReducer = (state=initialState, action) => {
     }
 };
 
+type SetAuthUserDataPayloadType = {userId:number, email:string, login:string, isAuth:boolean }
+export type SetAuthUserDataType = { type: typeof SET_USER_DATA, payload:SetAuthUserDataPayloadType }
+export const setAuthUserData = (userId:number, email:string, login:string, isAuth:boolean):SetAuthUserDataType => { return  {type: SET_USER_DATA, payload:{userId, email, login, isAuth}   };
 
-export const setAuthUserData = (userId, email, login, isAuth)=> { return  {type: "SET-USER-DATA", payload:{userId, email, login, isAuth}  } };
+
 export const getCaptchaUrlSuccess = (captchaUrl)=> { return  {type: "GET-CAPTCHA-URL-SUCCES", payload:{captchaUrl}  } };
 
 
@@ -46,7 +60,7 @@ export const getCaptchaUrl = () => async (dispatch) => {
 
 
 export const getAuthUserData = () => {
-    return async (dispatch) => {
+    return async (dispatch:any) => {
         let response=await userAPI.authMe ()
                 if (response.data.resultCode===0) {
                     let {id, email, login} = response.data.data;
@@ -69,7 +83,7 @@ export const login = (email, password, rememberMe, captcha) => async (dispatch)=
 };
 
 export const logout = () => {
-    return (dispatch) => {
+    return (dispatch:any) => {
         userAPI.Logout ()
             .then(response => {
                 if (response.data.resultCode===0) {
@@ -78,6 +92,3 @@ export const logout = () => {
 
 
 export default authReducer;
-
-
-

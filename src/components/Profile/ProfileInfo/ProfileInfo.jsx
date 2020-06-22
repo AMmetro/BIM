@@ -15,6 +15,7 @@ const ProfileInfo = (props) => {
         return <Preloader/>
     }
 
+
     const onMainPhotoSelected = (e) => {
         if (e.target.files.length) {
             props.savePhoto(e.target.files[0])
@@ -93,7 +94,6 @@ export default ProfileInfo;
 
 
 
-//   52 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 

@@ -32,7 +32,8 @@ class Music extends React.Component {
 
     render = () => {
 
-        let musStyleList = this.state.music.map( elem=>
+
+       let musStyleList = this.state.music.map( elem=>
                //  что за странный обект создается в консоли ??  console.log(musStyleList);
             <option title={elem.title} selected={elem.selected} value={elem.id} >{elem.title}</option>
             // по умолчанию Value это между тэгами, иначе что яво явно указано в "value="
@@ -42,10 +43,13 @@ class Music extends React.Component {
             <div className={sss.MainPage +" "+ sss.Adiition}>
 
 
+                <a href="https://tut.by">
+                <button tabIndex="0" id="test">
+                    <img src="https://connectnigeria.com/articles/wp-content/uploads/2018/05/google-apps.jpg"/>
+                </button>
+                </a>
 
-
-                {/*<button className="test">test</button>*/}
-
+          
 
                <button>Add song</button>
 

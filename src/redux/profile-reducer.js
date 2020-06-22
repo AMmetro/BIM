@@ -40,8 +40,7 @@ const profileReducer = (state=initialState, action) => {
         }
 
         case SAVE_PHOTO_SUCCESS: {
-            debugger
-            return {...state, profile: {...state.profile, photos: action.file}}
+           return {...state, profile: {...state.profile, photos: action.file}}
         }
 
 
