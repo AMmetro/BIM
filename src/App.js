@@ -58,7 +58,6 @@ class App extends Component {
 
                 <div className='app-wrapper-content'>
 
-
                     <Switch>  {/*  with "switch" show only first routing with name match, without show all match */}
 
                     <Route exact path='/' render={() => <ProfileContainer store={this.props.store}/>}/>
